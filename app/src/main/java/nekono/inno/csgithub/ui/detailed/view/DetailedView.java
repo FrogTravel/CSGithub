@@ -1,4 +1,4 @@
-package nekono.inno.csgithub.ui.detailed;
+package nekono.inno.csgithub.ui.detailed.view;
 
 import java.util.List;
 

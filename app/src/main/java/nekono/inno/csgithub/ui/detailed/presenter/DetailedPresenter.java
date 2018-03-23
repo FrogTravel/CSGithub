@@ -1,4 +1,4 @@
-package nekono.inno.csgithub.ui.detailed;
+package nekono.inno.csgithub.ui.detailed.presenter;
 
 import nekono.inno.csgithub.model.Issue;
 

@@ -1,9 +1,11 @@
-package nekono.inno.csgithub.ui.detailed;
+package nekono.inno.csgithub.ui.detailed.presenter;
 
 import nekono.inno.csgithub.model.Issue;
+import nekono.inno.csgithub.ui.detailed.view.DetailedView;
 
 /**
  * Created by ekaterina on 3/24/18.
+ * Just parse issue
  */
 
 public class DetailedPresenterImpl implements DetailedPresenter {

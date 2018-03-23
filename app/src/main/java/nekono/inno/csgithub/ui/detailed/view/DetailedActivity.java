@@ -1,4 +1,4 @@
-package nekono.inno.csgithub.ui.detailed;
+package nekono.inno.csgithub.ui.detailed.view;
 
 import android.app.Activity;
 import android.os.Bundle;
@@ -15,26 +15,23 @@ import butterknife.ButterKnife;
 import nekono.inno.csgithub.R;
 import nekono.inno.csgithub.model.Issue;
 import nekono.inno.csgithub.model.Labels;
+import nekono.inno.csgithub.ui.detailed.presenter.DetailedPresenter;
+import nekono.inno.csgithub.ui.detailed.presenter.DetailedPresenterImpl;
 
 /**
  * Created by ekaterina on 3/23/18.
+ * Okey, so here was a choice, I could make a new request, or pass issue through intent
+ * I choose second, 'cause it seems easier for me.
  */
 
 public class DetailedActivity extends Activity implements DetailedView {
-    @BindView(R.id.titleTextView)
-    TextView titleTextView;
-    @BindView(R.id.bodyTextView)
-    TextView bodyTextView;
-    @BindView(R.id.dateTextView)
-    TextView dateTextView;
-    @BindView(R.id.stateTextView)
-    TextView stateTextView;
-    @BindView(R.id.userLoginTextView)
-    TextView loginTextView;
-    @BindView(R.id.labelsLL)
-    LinearLayout labelsLinearLayout;
-    @BindView(R.id.avatarImageView)
-    ImageView avatarImageView;
+    @BindView(R.id.titleTextView) TextView titleTextView;
+    @BindView(R.id.bodyTextView) TextView bodyTextView;
+    @BindView(R.id.dateTextView) TextView dateTextView;
+    @BindView(R.id.stateTextView) TextView stateTextView;
+    @BindView(R.id.userLoginTextView) TextView loginTextView;
+    @BindView(R.id.labelsLL) LinearLayout labelsLinearLayout;
+    @BindView(R.id.avatarImageView) ImageView avatarImageView;
 
     private Issue issue;
     private DetailedPresenter presenter;
@@ -58,9 +55,16 @@ public class DetailedActivity extends Activity implements DetailedView {
         loginTextView.setText(login);
     }
 
+    /**
+     * Picasso for more convenient work with images. In case of error will show a placeholder
+     */
     @Override
     public void showAvatar(String url) {
-        Picasso.get().load(url).into(avatarImageView);
+        Picasso.get()
+                .load(url)
+                .placeholder(getDrawable(R.drawable.default_image))
+                .error(getDrawable(R.drawable.default_image))
+                .into(avatarImageView);
     }
 
     @Override
@@ -78,6 +82,9 @@ public class DetailedActivity extends Activity implements DetailedView {
         stateTextView.setText(state);
     }
 
+    /**
+     * Comma will be added after every label, if not the last label
+     */
     @Override
     public void setLabels(List<Labels> labels) {
         for (Labels label : labels) {
@@ -91,6 +98,9 @@ public class DetailedActivity extends Activity implements DetailedView {
         }
     }
 
+    /**
+     * Okay, I am lazy enough to get all dates as string and then to replace some chars everywhere
+     */
     @Override
     public void setDate(String date) {
         date = date.replace("T", " ").replace("Z", " ");

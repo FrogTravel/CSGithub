@@ -5,6 +5,7 @@ import java.util.List;
 
 /**
  * Created by ekaterina on 3/22/18.
+ * Serializable because the object will be passed through intent
  */
 
 public class Issue implements Serializable {

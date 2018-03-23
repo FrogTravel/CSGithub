@@ -4,6 +4,7 @@ import java.io.Serializable;
 
 /**
  * Created by ekaterina on 3/23/18.
+ * Serializable because the object will be passed through intent
  */
 
 public class Labels implements Serializable {

@@ -1,4 +1,4 @@
-package nekono.inno.csgithub.model.modules;
+package nekono.inno.csgithub.util.modules;
 
 import android.app.Application;
 

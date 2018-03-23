@@ -1,9 +1,10 @@
-package nekono.inno.csgithub.model.modules;
+package nekono.inno.csgithub.util.modules;
 
 import android.app.Application;
 
 /**
  * Created by ekaterina on 3/22/18.
+ * Some dagger 2 magic
  */
 
 public class App extends Application {

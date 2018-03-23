@@ -1,9 +1,9 @@
-package nekono.inno.csgithub.model.modules;
+package nekono.inno.csgithub.util.modules;
 
 import javax.inject.Singleton;
 
 import dagger.Component;
-import nekono.inno.csgithub.ui.main.view.MainActivityImpl;
+import nekono.inno.csgithub.ui.main.view.MainActivity;
 
 /**
  * Created by ekaterina on 3/22/18.
@@ -12,6 +12,6 @@ import nekono.inno.csgithub.ui.main.view.MainActivityImpl;
 @Singleton
 @Component(modules = {AppModule.class, NetModule.class})
 public interface NetComponent {
-    void inject(MainActivityImpl activity);
+    void inject(MainActivity activity);
 }
 
