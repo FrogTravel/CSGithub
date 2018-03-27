@@ -1,4 +1,4 @@
-package nekono.inno.csgithub.ui.main.view;
+package nekono.inno.csgithub.ui.main;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -16,16 +16,14 @@ import nekono.inno.csgithub.ui.main.adapters.IssueAdapter;
 import nekono.inno.csgithub.util.modules.App;
 import nekono.inno.csgithub.model.Issue;
 import nekono.inno.csgithub.R;
-import nekono.inno.csgithub.ui.detailed.view.DetailedActivity;
-import nekono.inno.csgithub.ui.main.presenter.MainActivityPresenter;
-import nekono.inno.csgithub.ui.main.presenter.MainActivityPresenterImpl;
+import nekono.inno.csgithub.ui.detailed.DetailedActivity;
 import retrofit2.Retrofit;
 
-public class MainActivity extends Activity implements MainView, IssueAdapter.OnIssueClickListener {
+public class MainActivity extends Activity implements MainScreen.View, IssueAdapter.OnIssueClickListener {
     @Inject Retrofit retrofit;
     @BindView(R.id.issues_recycler) RecyclerView issuesRecyclerView;
 
-    private MainActivityPresenter presenter;
+    private MainScreen.Presenter presenter;
 
     /**
      * Some magic with dagger and then everything works just fine
@@ -37,7 +35,7 @@ public class MainActivity extends Activity implements MainView, IssueAdapter.OnI
         ((App) getApplication()).getNetComponent().inject(this);
         ButterKnife.bind(this);
 
-        presenter = new MainActivityPresenterImpl(this, retrofit);
+        presenter = new MainActivityPresenter(this, retrofit);
         presenter.requestIssues();
 
         issuesRecyclerView.setLayoutManager(new LinearLayoutManager(this));

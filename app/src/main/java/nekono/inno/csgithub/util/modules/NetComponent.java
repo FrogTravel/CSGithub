@@ -3,7 +3,7 @@ package nekono.inno.csgithub.util.modules;
 import javax.inject.Singleton;
 
 import dagger.Component;
-import nekono.inno.csgithub.ui.main.view.MainActivity;
+import nekono.inno.csgithub.ui.main.MainActivity;
 
 /**
  * Created by ekaterina on 3/22/18.

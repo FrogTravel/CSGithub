@@ -1,6 +1,4 @@
-package nekono.inno.csgithub.ui.main.presenter;
-
-import android.util.Log;
+package nekono.inno.csgithub.ui.main;
 
 import java.util.List;
 
@@ -8,19 +6,18 @@ import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.schedulers.Schedulers;
 import nekono.inno.csgithub.model.Issue;
 import nekono.inno.csgithub.util.retrofit.RestAPI;
-import nekono.inno.csgithub.ui.main.view.MainView;
 import retrofit2.Retrofit;
 
 /**
  * Created by ekaterina on 3/22/18.
  */
 
-public class MainActivityPresenterImpl implements MainActivityPresenter{
-    private MainView view;
+public class MainActivityPresenter implements MainScreen.Presenter{
+    private MainScreen.View view;
     private Retrofit retrofit;
 
 
-    public MainActivityPresenterImpl(MainView view, Retrofit retrofit){
+    public MainActivityPresenter(MainScreen.View view, Retrofit retrofit){
         this.view = view;
         this.retrofit = retrofit;
     }

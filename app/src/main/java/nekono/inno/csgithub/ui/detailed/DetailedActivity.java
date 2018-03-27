@@ -1,4 +1,4 @@
-package nekono.inno.csgithub.ui.detailed.view;
+package nekono.inno.csgithub.ui.detailed;
 
 import android.app.Activity;
 import android.os.Bundle;
@@ -15,8 +15,6 @@ import butterknife.ButterKnife;
 import nekono.inno.csgithub.R;
 import nekono.inno.csgithub.model.Issue;
 import nekono.inno.csgithub.model.Labels;
-import nekono.inno.csgithub.ui.detailed.presenter.DetailedPresenter;
-import nekono.inno.csgithub.ui.detailed.presenter.DetailedPresenterImpl;
 
 /**
  * Created by ekaterina on 3/23/18.
@@ -24,7 +22,7 @@ import nekono.inno.csgithub.ui.detailed.presenter.DetailedPresenterImpl;
  * I choose second, 'cause it seems easier for me.
  */
 
-public class DetailedActivity extends Activity implements DetailedView {
+public class DetailedActivity extends Activity implements DetailedScreen.View {
     @BindView(R.id.titleTextView) TextView titleTextView;
     @BindView(R.id.bodyTextView) TextView bodyTextView;
     @BindView(R.id.dateTextView) TextView dateTextView;
@@ -34,7 +32,7 @@ public class DetailedActivity extends Activity implements DetailedView {
     @BindView(R.id.avatarImageView) ImageView avatarImageView;
 
     private Issue issue;
-    private DetailedPresenter presenter;
+    private DetailedScreen.Presenter presenter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,7 +40,7 @@ public class DetailedActivity extends Activity implements DetailedView {
         setContentView(R.layout.activity_detailed);
         ButterKnife.bind(this);
 
-        presenter = new DetailedPresenterImpl(this);
+        presenter = new DetailedPresenter(this);
 
         issue = (Issue) getIntent().getSerializableExtra("Issue");
 

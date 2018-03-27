@@ -1,18 +1,17 @@
-package nekono.inno.csgithub.ui.detailed.presenter;
+package nekono.inno.csgithub.ui.detailed;
 
 import nekono.inno.csgithub.model.Issue;
-import nekono.inno.csgithub.ui.detailed.view.DetailedView;
 
 /**
  * Created by ekaterina on 3/24/18.
  * Just parse issue
  */
 
-public class DetailedPresenterImpl implements DetailedPresenter {
-    private DetailedView view;
+public class DetailedPresenter implements DetailedScreen.Presenter {
+    private DetailedScreen.View view;
 
 
-    public DetailedPresenterImpl(DetailedView view){
+    public DetailedPresenter(DetailedScreen.View view){
         this.view = view;
     }
 
