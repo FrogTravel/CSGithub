@@ -22,7 +22,7 @@ public class DetailedPresenter implements DetailedScreen.Presenter {
         view.setLogin(issue.getUser().getLogin());
         view.setBody(issue.getBody());
         view.setState(issue.getState());
-        view.setDate(issue.getCreated_at());
+        view.setDate(issue.getCreated_at().toString());
         view.setTitle(issue.getTitle());
     }
 }

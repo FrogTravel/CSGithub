@@ -12,14 +12,13 @@ import javax.inject.Inject;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
-import nekono.inno.csgithub.ui.main.adapters.IssueAdapter;
 import nekono.inno.csgithub.util.modules.App;
 import nekono.inno.csgithub.model.Issue;
 import nekono.inno.csgithub.R;
 import nekono.inno.csgithub.ui.detailed.DetailedActivity;
 import retrofit2.Retrofit;
 
-public class MainActivity extends Activity implements MainScreen.View, IssueAdapter.OnIssueClickListener {
+public class MainActivity extends Activity implements MainScreen.View {
     @Inject Retrofit retrofit;
     @BindView(R.id.issues_recycler) RecyclerView issuesRecyclerView;
 
@@ -43,7 +42,7 @@ public class MainActivity extends Activity implements MainScreen.View, IssueAdap
 
     @Override
     public void showIssues(List<Issue> issues) {
-       issuesRecyclerView.setAdapter(new IssueAdapter(issues, this));
+       issuesRecyclerView.setAdapter(new IssueAdapter(presenter));
     }
 
     /**
@@ -55,11 +54,5 @@ public class MainActivity extends Activity implements MainScreen.View, IssueAdap
         intent.putExtra("Issue", issue);
         startActivity(intent);
     }
-
-    @Override
-    public void onIssueClick(Issue issue) {
-        presenter.issueClicked(issue);
-    }
-
 
 }

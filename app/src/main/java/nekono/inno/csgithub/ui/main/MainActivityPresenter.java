@@ -15,6 +15,7 @@ import retrofit2.Retrofit;
 public class MainActivityPresenter implements MainScreen.Presenter{
     private MainScreen.View view;
     private Retrofit retrofit;
+    private List<Issue> issues;
 
 
     public MainActivityPresenter(MainScreen.View view, Retrofit retrofit){
@@ -37,7 +38,18 @@ public class MainActivityPresenter implements MainScreen.Presenter{
 
     }
 
+    @Override
+    public Issue getIssue(int position) {
+        return issues.get(position);
+    }
+
+    @Override
+    public int getIssuesSize() {
+        return issues.size();
+    }
+
     private void onResult(List<Issue> issues){
+        this.issues = issues;
         view.showIssues(issues);
     }
 

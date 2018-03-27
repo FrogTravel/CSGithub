@@ -19,6 +19,10 @@ public interface MainScreen {
         void issueClicked(Issue issue);
 
         void requestIssues();
+
+        Issue getIssue(int position);
+
+        int getIssuesSize();
     }
 
 

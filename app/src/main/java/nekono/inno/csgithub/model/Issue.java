@@ -1,6 +1,7 @@
 package nekono.inno.csgithub.model;
 
 import java.io.Serializable;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -11,13 +12,13 @@ import java.util.List;
 public class Issue implements Serializable {
     private String title;
     private String body;
-    private String created_at;
+    private Date created_at;
     private String state;
 
     private List<Labels> labels;
     private User user;
 
-    public Issue(String title, String body, String created_at, String state) {
+    public Issue(String title, String body, Date created_at, String state) {
         this.title = title;
         this.body = body;
         this.created_at = created_at;
@@ -40,11 +41,11 @@ public class Issue implements Serializable {
         this.body = body;
     }
 
-    public String getCreated_at() {
+    public Date getCreated_at() {
         return created_at;
     }
 
-    public void setCreated_at(String created_at) {
+    public void setCreated_at(Date created_at) {
         this.created_at = created_at;
     }
 
